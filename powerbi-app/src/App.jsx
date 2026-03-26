@@ -3,18 +3,26 @@ import axios from "axios";
 import { PowerBIEmbed } from "powerbi-client-react";
 import { models } from "powerbi-client";
 import "./App.css"; 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 function App() {
   const [embedConfig, setEmbedConfig] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/getEmbedToken")
+    axios.get(`${API_BASE_URL}/reports/getEmbedToken`)
       .then(res => {
         setEmbedConfig({
           type: "report",
-          id: "8bc103bc-a6f6-4157-90e5-56637b71e746",
+          id: res.data.reportId,
           embedUrl: res.data.embedUrl,
           accessToken: res.data.embedToken,
-          tokenType: models.TokenType.Embed
+          tokenType: models.TokenType.Embed,
+          settings: {
+    panes: {
+      filters: {
+        visible: true   // 👈 ENABLE filter pane
+      }
+    }
+  }
         });
       });
   }, []);
