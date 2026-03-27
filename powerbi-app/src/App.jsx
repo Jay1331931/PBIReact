@@ -18,10 +18,10 @@ function App() {
           tokenType: models.TokenType.Embed,
           settings: {
     panes: {
-      filters: {
-        visible: true   // 👈 ENABLE filter pane
-      }
-    }
+      filters: { visible: true },
+      pageNavigaation: { visible: true }
+    },
+    navContentPaneEnabled: true
   }
         });
       });
