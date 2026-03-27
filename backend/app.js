@@ -4,7 +4,6 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT;
 const reportRoutes = require("./routes/reportRoutes.js");
-// On your Express/Node.js backend
 app.use(cors({
   origin: "*",
   credentials: true
