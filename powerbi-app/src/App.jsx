@@ -6,7 +6,6 @@ import "./App.css";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 function App() {
   const [embedConfig, setEmbedConfig] = useState(null);
-
   useEffect(() => {
     axios.get(`${API_BASE_URL}/reports/getEmbedToken`)
       .then(res => {
