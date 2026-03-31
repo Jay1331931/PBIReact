@@ -32,7 +32,7 @@ const reportController = {
 
         if (employee && employee.length > 0) {
           username = d365User;
-          roles = [employee[0].TITLEID];
+          roles = [employee[0].NAME];
           console.log(`✅ D365 User found: ${employee[0].NAME}, Role: ${employee[0].TITLEID}`);
         } else {
           console.warn(`⚠️ D365 User not found in BYOD: ${d365User}`);
