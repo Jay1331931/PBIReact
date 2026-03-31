@@ -1,9 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const { initCronJobs } = require("./cron");
 const app = express();
-require("dotenv").config();
+
 const PORT = process.env.PORT;
 const reportRoutes = require("./routes/reportRoutes.js");
+initCronJobs();
 app.use(cors({
   origin: "*",
   credentials: true
