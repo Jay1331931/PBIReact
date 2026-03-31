@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const { initCronJobs } = require("./cron");
+const { initCronJobs } = require("./cron/index.js");
 const app = express();
 
 const PORT = process.env.PORT;
