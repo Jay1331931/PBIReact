@@ -3,7 +3,8 @@ const { syncReports } = require("../services/powerbi.service");
 
 function startSyncJob() {
   // Every 10 minutes
-  cron.schedule("*/2 * * * *", async () => {
+  setTimeout(() => {
+  cron.schedule("*/10 * * * *", async () => {
     // console.log("⏳ Running Power BI sync...");
 
     try {
@@ -13,6 +14,7 @@ function startSyncJob() {
       // console.error("❌ Sync failed:", err.message);
     }
   });
+}, 10000);
 }
 
 module.exports = { startSyncJob };
