@@ -32,7 +32,14 @@ const reportController = {
 
         if (employee && employee.length > 0) {
           username = d365User;
-          roles = [employee[0].NAME];
+          // roles = [employee[0].NAME];
+          roles = employee.flatMap(emp => {
+          const name = emp.NAME?.trim();
+          const titleId = emp.TITLEID?.trim();
+
+          return [name, titleId].filter(Boolean); // include both if they exist
+        });
+          roles = [...new Set(roles)];
           console.log(`✅ D365 User found: ${employee[0].NAME}, Role: ${employee[0].TITLEID}`);
         } else {
           console.warn(`⚠️ D365 User not found in BYOD: ${d365User}`);
