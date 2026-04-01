@@ -87,7 +87,7 @@ async function syncReports() {
           rpt.name,
           rpt.id,
           rpt.datasetId,
-          process.env.WORKSPACE_ID
+          rpt.workspaceId
         ]
       );
     }
